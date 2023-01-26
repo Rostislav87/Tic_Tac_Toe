@@ -35,6 +35,11 @@ Let's start the game
     return print(greeting, rules)
 
 
-
-
+def create_gamefield():
+    row = "+---+---+---+"
+    set1 = "|   |   |   |"
+    set2 = "|   |   |   |"
+    set3 = "|   |   |   |"
+    field = f"{row}\n{set1}\n{row}\n{set2}\n{row}\n{set3}\n{row}"
+    return field
 
