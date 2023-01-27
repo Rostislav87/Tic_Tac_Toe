@@ -6,14 +6,11 @@ email: rosta.rabiec@icloud.com
 discord: Rostislav R.#9305
 """
 
-# Vytvoř pozdrav a vysvětli pravidla hry
-# Herní pole
-# Samotný chod hry
+import random
 
 
 def main():
     create_greetings()
-    create_gamefield()
     play_game()
 
 
@@ -30,16 +27,68 @@ marks in a:
 * vertical
 * diagonal row
 {separator}
-Let's start the game
 """
     return print(greeting, rules)
 
 
 def create_gamefield():
-    row = "+---+---+---+"
-    set1 = "|   |   |   |"
-    set2 = "|   |   |   |"
-    set3 = "|   |   |   |"
-    field = f"{row}\n{set1}\n{row}\n{set2}\n{row}\n{set3}\n{row}"
+    field = f"""
++---+---+---+
+| 7 | 8 | 9 |
++---+---+---+
+| 4 | 5 | 6 |
++---+---+---+
+| 1 | 2 | 3 |
++---+---+---+
+"""
     return field
 
+
+def input_player1():
+    while True:
+        player1 = input("Player X | Please enter your number: ")
+        if player1 == "0" or len(player1) > 1:
+            print("Please, enter number from 1 to 9.")
+            continue
+        elif not player1.isdigit():
+            print("Please, enter only number, not another symbols.")
+            continue 
+        else:
+            return player1
+
+
+def input_player2():
+    while True:
+        player2 = input("Player O | Please enter your number: ")
+        if player2 == "0" or len(player2) > 1:
+            print("Please, enter number from 1 to 9.")
+            continue
+        elif not player2.isdigit():
+            print("Please, enter only number, not another symbols.")
+            continue
+        else:
+            return player2
+
+def play_game():
+    print("Let's start the game.")
+    print(40 * "-")
+    game_field = create_gamefield()
+    print(game_field)
+    print(40 * "=")
+    player1 = input_player1()
+    print(40 * "=")
+    
+    print(40 * "=")    
+    player2 = input_player2()
+    print(40 * "=")
+        
+
+       
+        
+        
+    
+               
+
+
+if __name__ == "__main__":
+    main()
