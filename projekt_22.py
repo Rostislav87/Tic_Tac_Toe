@@ -31,14 +31,14 @@ marks in a:
     return print(greeting, rules)
 
 
-def create_gamefield():
+def create_gamefield(field_numbers):
     field = f"""
 +---+---+---+
-| 7 | 8 | 9 |
+| {field_numbers[6]} | {field_numbers[7]} | {field_numbers[8]} |
 +---+---+---+
-| 4 | 5 | 6 |
+| {field_numbers[3]} | {field_numbers[4]} | {field_numbers[5]} |
 +---+---+---+
-| 1 | 2 | 3 |
+| {field_numbers[0]} | {field_numbers[1]} | {field_numbers[2]} |
 +---+---+---+
 """
     return field
@@ -54,7 +54,7 @@ def input_player1():
             print("Please, enter only number, not another symbols.")
             continue 
         else:
-            return player1
+            return int(player1)
 
 
 def input_player2():
@@ -67,28 +67,26 @@ def input_player2():
             print("Please, enter only number, not another symbols.")
             continue
         else:
-            return player2
+            return int(player2)
 
 def play_game():
+    field_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     print("Let's start the game.")
     print(40 * "-")
-    game_field = create_gamefield()
-    print(game_field)
+    print(create_gamefield(field_numbers))
+
     print(40 * "=")
     player1 = input_player1()
     print(40 * "=")
-    
+    field_numbers[player1 - 1] = "X"
+    print(create_gamefield(field_numbers))
+
     print(40 * "=")    
     player2 = input_player2()
     print(40 * "=")
-        
+    field_numbers[player2 - 1] = "O"
+    print(create_gamefield(field_numbers))    
 
        
-        
-        
-    
-               
-
-
 if __name__ == "__main__":
     main()
