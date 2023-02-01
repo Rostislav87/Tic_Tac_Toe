@@ -6,8 +6,6 @@ email: rosta.rabiec@icloud.com
 discord: Rostislav R.#9305
 """
 
-import random
-
 
 def main():
     create_greetings()
