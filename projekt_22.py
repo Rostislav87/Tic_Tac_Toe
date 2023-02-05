@@ -6,8 +6,6 @@ email: rosta.rabiec@icloud.com
 discord: Rostislav R.#9305
 """
 
-import random
-
 
 def main():
     create_greetings()
@@ -44,9 +42,9 @@ def create_gamefield(field_numbers):
     return field
 
 
-def input_player1():
+def input_player(x):
     while True:
-        player1 = input("Player X | Please enter your number: ")
+        player1 = input(f"Player {x} | Please enter your number: ")
         if player1 == "0" or len(player1) > 1:
             print("Please, enter number from 1 to 9.")
             continue
@@ -57,18 +55,6 @@ def input_player1():
             return int(player1)
 
 
-def input_player2():
-    while True:
-        player2 = input("Player O | Please enter your number: ")
-        if player2 == "0" or len(player2) > 1:
-            print("Please, enter number from 1 to 9.")
-            continue
-        elif not player2.isdigit():
-            print("Please, enter only number, not another symbols.")
-            continue
-        else:
-            return int(player2)
-
 def play_game():
     field_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     print("Let's start the game.")
@@ -76,17 +62,17 @@ def play_game():
     print(create_gamefield(field_numbers))
 
     print(40 * "=")
-    player1 = input_player1()
+    player1 = input_player("X")
     print(40 * "=")
     field_numbers[player1 - 1] = "X"
     print(create_gamefield(field_numbers))
 
     print(40 * "=")    
-    player2 = input_player2()
+    player2 = input_player("O")
     print(40 * "=")
     field_numbers[player2 - 1] = "O"
-    print(create_gamefield(field_numbers))    
+    print(create_gamefield(field_numbers)) 
 
-       
+
 if __name__ == "__main__":
     main()
