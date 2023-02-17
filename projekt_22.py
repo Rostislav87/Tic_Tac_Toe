@@ -57,18 +57,23 @@ def input_player(x):
 
 def play_game():
     field_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
+    moves = ["X", "O"]
     print("Let's start the game.")
     print(40 * "-")
     print(create_gamefield(field_numbers))
 
-    for move in "X", "O":
-        print(40 * "=")   
-        player = input_player(move)
-        print(40 * "=")
-        field_numbers[player - 1] = move  
-        print(create_gamefield(field_numbers))
-
+    while True: 
+        for move in moves:
+            print(40 * "=")  
+            player = input_player(move)
+            print(40 * "=")
+            if field_numbers[player - 1] == moves[0] or field_numbers[player - 1] == moves[1]:
+                print("Field is already signed. Please choose another one.") 
+                continue            
+            else:    
+                field_numbers[player - 1] = move
+                print(create_gamefield(field_numbers))
+                continue                    
     
 if __name__ == "__main__":
     main()
