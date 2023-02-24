@@ -75,8 +75,7 @@ def evulate_moves(field_numbers, move):
         if win == ["X", "X", "X"] or win == ["O", "O", "O"]:
             print(f"The winner is {move} player! Game over!")
             print(40 * "=")
-            return sys.exit()
-        
+            return sys.exit()       
 
 
 def play_game():
