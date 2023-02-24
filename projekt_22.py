@@ -5,6 +5,7 @@ author: Rostislav Rabiec
 email: rosta.rabiec@icloud.com
 discord: Rostislav R.#9305
 """
+import sys
 
 
 def main():
@@ -55,19 +56,29 @@ def input_player(x):
             return int(player)
 
 
-def player_move(y, z):
+def player_move(move, field_numbers):
     while True:
         print(40 * "=")  
-        player = input_player(y)
+        player = input_player(move)
         print(40 * "=")
-        if z[player - 1] == "X" or z[player - 1] == "O":
+        if field_numbers[player - 1] == "X" or field_numbers[player - 1] == "O":
             print("Field is already signed. Please choose another one.") 
             continue            
         else:    
-            z[player - 1] = y
-            return print(create_gamefield(z))
-                
-                          
+            field_numbers[player - 1] = move
+            return print(create_gamefield(field_numbers))
+
+
+def evulate_moves(field_numbers, move):
+    win_options_list = field_numbers[:3], field_numbers[3:6], field_numbers[6:9], field_numbers[0:7:3], field_numbers[1:8:3], field_numbers[2:9:3], field_numbers[:9:4], field_numbers[2:7:2]
+    for win in win_options_list:
+        if win == ["X", "X", "X"] or win == ["O", "O", "O"]:
+            print(f"The winner is {move} player! Game over!")
+            print(40 * "=")
+            return sys.exit()
+        
+
+
 def play_game():
     field_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     game = True
@@ -77,8 +88,7 @@ def play_game():
     while game:
         for move in "X", "O": 
             player_move(move, field_numbers)
-            continue
-       
+            evulate_moves(field_numbers, move)
        
 if __name__ == "__main__":
     main()
