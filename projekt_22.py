@@ -80,6 +80,7 @@ def evulate_moves(field_numbers, move):
 
 def play_game():
     field_numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    number_of_attempts = 0
     game = True
     print("Let's start the game.")
     print(40 * "-")
@@ -88,6 +89,11 @@ def play_game():
         for move in "X", "O": 
             player_move(move, field_numbers)
             evulate_moves(field_numbers, move)
-       
+            number_of_attempts += 1
+            if number_of_attempts == 9:
+                print("The field is fully signed. Draw!")
+                sys.exit()
+            
+            
 if __name__ == "__main__":
     main()
