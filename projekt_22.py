@@ -1,5 +1,5 @@
 """
-projekt_22.py: Druhý projekt do Engeto Online Python Akademie
+projekt_22.py: Čtvrtý projekt do Engeto Online Python Akademie
 
 author: Rostislav Rabiec
 email: rosta.rabiec@icloud.com
